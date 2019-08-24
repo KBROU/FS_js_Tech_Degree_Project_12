@@ -56,7 +56,7 @@ passport.deserializeUser(function(userId, done){
 
 
 
-const API_PORT = 3001;
+const API_PORT = process.env.PORT || 3001;
 const app = express();
 app.use(
   cors({
@@ -68,7 +68,7 @@ app.use(
 //const router = express.Router();
 
 //MongoDB database using mongoose
-  mongoose.connect("mongodb://localhost:27017/greenit-app", { useNewUrlParser: true });
+  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/greenit-app", { useNewUrlParser: true });
   const db = mongoose.connection;
 
 // Session Configuration for Passport and MongoDB
