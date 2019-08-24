@@ -1,11 +1,10 @@
 import React from 'react';
-import JumboTitle from './JumboTitle';
+
 
 
 const AuthV2 = props => {
 
   const loggedIn = props.loggedIn;
-  let test;
 
 
   if(loggedIn === true) {

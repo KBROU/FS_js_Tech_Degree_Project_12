@@ -22,26 +22,26 @@ export default class Navibar extends React.Component {
             { !this.props.loggedIn
             ? (
                 <NavItem>
-                  <NavLink class="h5" href="http://localhost:3001/api/auth/login/facebook">Login</NavLink>
+                  <NavLink className="h5" href="http://localhost:3001/api/auth/login/facebook">Login</NavLink>
                 </NavItem>
               )
             : (
                 <Nav pills navbar>
                   <NavItem>
                     <NavLink disabled >
-                      <blockquote class="blockquote text-center">
-                        <p class="h6 text-dark">{this.props.name}{<br />}Signed In</p>
+                      <blockquote className="blockquote text-center">
+                        <p className="h6 text-dark">{this.props.name}{<br />}Signed In</p>
                       </blockquote>
                     </NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink disabled >
-                      <img src={this.props.photo}/>
+                      <img src={this.props.photo} alt="Profile"/>
                     </NavLink>
                   </NavItem>
                   <NavItem className="mt-2">
                     <NavLink href="http://localhost:3001/api/auth/logout" active>
-                      <p class="h6 text-white">Logout</p>
+                      <p className="h6 text-white">Logout</p>
                     </NavLink>
                   </NavItem>
                 </Nav>

@@ -3,7 +3,7 @@ import React from 'react';
 import Weather from './Weather';
 import GoogleMapComp from './GoogleMapComp';
 import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Container, Row, Col } from 'reactstrap';
+  CardTitle, Container, Row, Col } from 'reactstrap';
 
   // <div className="container-fluid">
   //   <div className="mx-auto">
@@ -19,17 +19,14 @@ const Welcome = props => (
       </div>
     </div>
 
-    <div>
-
-    </div>
     <Container>
        <Row>
          <Col>
            <Card>
-             <CardImg top width="100%" src={require('../img/weatherCard2.jpg')} alt="Card image cap" />
+             <CardImg top width="100%" src={require('../img/weatherCard2.jpg')} alt="card cap weather" />
              <CardBody>
                <CardTitle className="h5 text-center">Todays Weather</CardTitle>
-               <CardText className="">
+               <CardText className="weather">
                 <Weather/>
                </CardText>
              </CardBody>
@@ -37,7 +34,7 @@ const Welcome = props => (
          </Col>
          <Col>
            <Card className="mb-2">
-             <CardImg top width="100%" src={require('../img/road2.jpg')} alt="Card image cap" />
+             <CardImg top width="100%" src={require('../img/road2.jpg')} alt="card cap map" />
              <CardBody>
                <CardTitle className="h5 text-center">Commute</CardTitle>
                <CardText>

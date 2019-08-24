@@ -1,9 +1,7 @@
 // /client/App.js
 import React, { Component } from 'react';
-import axios from 'axios';
 import {
-    Route,
-    Redirect
+    Route
 } from 'react-router-dom';
 
 //App Components
@@ -18,8 +16,7 @@ class App extends Component {
     super()
     this.state = {
       loggedIn: false,
-      user: {},
-      test2: "test2"
+      user: {}
     }
   }
 
@@ -64,7 +61,6 @@ class App extends Component {
                 <Header
                   {...props}
                   loggedIn={this.state.loggedIn}
-                  nameTest={this.state.test2}
                   name={this.state.user.name}
                   photo={this.state.user.photo}
                 />
@@ -78,7 +74,6 @@ class App extends Component {
                 <Navibar
                   {...props}
                   loggedIn={this.state.loggedIn}
-                  nameTest={this.state.test2}
                   name={this.state.user.name}
                   photo={this.state.user.photo}
                 />

@@ -45,9 +45,15 @@ export default class Weather extends Component {
   render() {
      return (
        <div>
-         <p><strong>Daily Summary:</strong> {this.state.dailyWeather}</p>
-         <p><strong>Hour Summary:</strong> {this.state.hourlyWeather}</p>
-         <p><strong>Minute Summary:</strong> {this.state.minWeather}</p>
+        <div>
+          <p><strong>Daily Summary:</strong> {this.state.dailyWeather}</p>
+        </div>
+        <div>
+          <p><strong>Hour Summary:</strong> {this.state.hourlyWeather}</p>
+        </div>
+        <div>
+          <p><strong>Minute Summary:</strong> {this.state.minWeather}</p>
+        </div>  
        </div>
      )
   }

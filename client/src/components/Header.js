@@ -8,7 +8,6 @@ const Header = (props) => {
     <header>
       <Navibar
         loggedIn={props.loggedIn}
-        test={props.nameTest}
         name={props.name}
         photo={props.photo}
       />
