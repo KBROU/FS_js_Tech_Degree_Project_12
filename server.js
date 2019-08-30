@@ -11,7 +11,7 @@ require('dotenv').config();
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const User = require("./models/user");
-//const Data = require('./models/data');
+const path = require('path');
 
 //*******************Passport*****************************************
 //Passport generateOrFindUser function
@@ -73,7 +73,7 @@ app.use(
 
 // Session Configuration for Passport and MongoDB
 var sessionOptions = {
-	secret: "this is a super secret dadada",
+	secret: process.env.SECRET || "this is a super secret dadada",
 	resave: true,
 	saveUninitialized: true,
   	store: new MongoStore({
@@ -106,6 +106,9 @@ const auth = require('./routes/auth');
 //app.use('/api', router);
 app.use('/api/auth', auth);
 
+//Send static file request to client for client and build folder
+app.use(express.static(path.join(__dirname, "client", "build")));
+
 // send 404 if no other route matched
 app.use((req, res) => {
   res.status(404).json({
@@ -122,5 +125,9 @@ app.use((err, req, res, next) => {
   });
 });
 
+//app.get("*") is a "catchall" route handler. It's in charge of sending the main index.html file back to the client if it didn't receive a request it recognized otherwise.
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
