@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   getUser = () => {
-    fetch('http://localhost:3001/api/auth/login/success', {
+    fetch('/api/auth/login/success', {
       method: "GET",
       credentials: "include",
       headers: {

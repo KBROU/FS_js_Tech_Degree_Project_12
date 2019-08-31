@@ -38,7 +38,7 @@ function generateOrFindUser(accessToken, refreshToken, profile, done){
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
   clientSecret: process.env.FACEBOOK_APP_SECRET,
-  callbackURL: "http://localhost:3001/api/auth/facebook/return",
+  callbackURL: "/api/auth/facebook/return",
   profileFields: ['id', 'displayName', 'photos', 'email']
 },
   generateOrFindUser)
@@ -58,6 +58,7 @@ passport.deserializeUser(function(userId, done){
 
 const API_PORT = process.env.PORT || 3001;
 const app = express();
+
 app.use(
   cors({
     origin: "http://localhost:3000", // allow to server to accept request from different origin

@@ -22,7 +22,7 @@ export default class Navibar extends React.Component {
             { !this.props.loggedIn
             ? (
                 <NavItem>
-                  <NavLink className="h5" href="http://localhost:3001/api/auth/login/facebook">Login</NavLink>
+                  <NavLink className="h5" href="/api/auth/login/facebook">Login</NavLink>
                 </NavItem>
               )
             : (
