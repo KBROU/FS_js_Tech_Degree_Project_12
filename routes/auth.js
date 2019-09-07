@@ -24,13 +24,13 @@ router.get('/facebook/return',
   passport.authenticate('facebook', { failureRedirect: CLIENT_HOME }),
   function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect(CLIENT_HOME+"/welcome");
+    res.redirect("/welcome");
   });
 
 //GET /auth/logout
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect(CLIENT_HOME);
+  res.redirect('/');
 });
 
 
