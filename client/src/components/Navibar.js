@@ -40,7 +40,7 @@ export default class Navibar extends React.Component {
                     </NavLink>
                   </NavItem>
                   <NavItem className="mt-2">
-                    <NavLink href="http://localhost:3001/api/auth/logout" active>
+                    <NavLink href="/api/auth/logout" active>
                       <p className="h6 text-white">Logout</p>
                     </NavLink>
                   </NavItem>
