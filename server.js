@@ -126,6 +126,10 @@ app.use((err, req, res, next) => {
   });
 });
 
+if (process.env.NODE_ENV === "production") {
+app.use(express.static('client/build'));
+}
+
 //app.get("*") is a "catchall" route handler. It's in charge of sending the main index.html file back to the client if it didn't receive a request it recognized otherwise.
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
