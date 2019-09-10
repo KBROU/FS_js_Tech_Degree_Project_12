@@ -38,7 +38,7 @@ function generateOrFindUser(accessToken, refreshToken, profile, done){
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
   clientSecret: process.env.FACEBOOK_APP_SECRET,
-  callbackURL: "/api/auth/facebook/return",
+  callbackURL: "https://start-the-day.herokuapp.com/api/auth/facebook/return",
   profileFields: ['id', 'displayName', 'photos', 'email']
 },
   generateOrFindUser)
