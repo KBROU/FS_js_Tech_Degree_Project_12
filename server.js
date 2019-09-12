@@ -131,8 +131,16 @@ app.use((err, req, res, next) => {
 // }
 
 //app.get("*") is a "catchall" route handler. It's in charge of sending the main index.html file back to the client if it didn't receive a request it recognized otherwise.
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// });
+
+app.get('/*', (req, res) => {
+  let url = path.join(__dirname, '../client/build', 'index.html');
+  if (!url.startsWith('/app/')) // we're on local windows
+    url = url.substring(1);
+  res.sendFile(url);
 });
+
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
