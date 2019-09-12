@@ -110,6 +110,24 @@ app.use('/api/auth', auth);
 //Send static file request to client for client and build folder
 app.use(express.static(path.join(__dirname, "client", "build")));
 
+
+
+// if (process.env.NODE_ENV === "production") {
+// app.use(express.static('client/build'));
+// }
+
+//app.get("*") is a "catchall" route handler. It's in charge of sending the main index.html file back to the client if it didn't receive a request it recognized otherwise.
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+// app.get('/*', (req, res) => {
+//   let url = path.join(__dirname, '../client/build', 'index.html');
+//   if (!url.startsWith('/app/')) // we're on local windows
+//     url = url.substring(1);
+//   res.sendFile(url);
+// });
+
 // send 404 if no other route matched
 app.use((req, res) => {
   res.status(404).json({
@@ -124,22 +142,6 @@ app.use((err, req, res, next) => {
     message: err.message,
     error: {}
   });
-});
-
-// if (process.env.NODE_ENV === "production") {
-// app.use(express.static('client/build'));
-// }
-
-//app.get("*") is a "catchall" route handler. It's in charge of sending the main index.html file back to the client if it didn't receive a request it recognized otherwise.
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
-
-app.get('/*', (req, res) => {
-  let url = path.join(__dirname, '../client/build', 'index.html');
-  if (!url.startsWith('/app/')) // we're on local windows
-    url = url.substring(1);
-  res.sendFile(url);
 });
 
 // launch our backend into a port
