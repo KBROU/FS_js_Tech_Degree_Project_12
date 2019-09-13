@@ -4,55 +4,7 @@ import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default class AuthV2 extends Component {
-  constructor() {
-        super()
-        //this.logoutAction = this.logoutAction.bind(this)
-        //this.loginAction = this.logoinAction.bind(this)
-    }
 
-  loginAction2(event) {
-    axios.get('/api/auth/login/facebook').then(response => {
-      console.log(response.data)
-    })
-  }
-
-  logoutAction2(event) {
-    axios.get('/api/auth/logout').then(response => {
-      console.log(response.data)
-    })
-  }
-
-  logoutAction(event) {
-    //event.preventDefault()
-    fetch('/api/auth/logout', {
-      method: "GET",
-      // credentials: "include",
-      // headers: {
-      //   Accept: "application/json",
-      //   "Content-Type": "application/json",
-      //   "Access-Control-Allow-Credentials": true
-      // }
-    })
-    .catch(error => {
-       console.log('Logout error')
-    });
-  }
-
-  loginAction(event) {
-    //event.preventDefault()
-    fetch('/api/auth/login/facebook', {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Credentials": true
-      }
-    })
-      .catch(error => {
-         console.log('Login error')
-      });
-    }
 
   render() {
 
